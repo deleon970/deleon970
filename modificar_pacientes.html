@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva -->
+    <title>Modificar Paciente</title> <!-- Título de la pestaña del navegador -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Tipo de fuente para el cuerpo */
+            background-color: #e6f9e6; /* Color de fondo verde claro */
+            display: flex; /* Utiliza Flexbox para organizar el contenido */
+            flex-direction: column; /* Organiza los elementos en columna */
+            justify-content: center; /* Centra verticalmente el contenido */
+            align-items: center; /* Centra horizontalmente el contenido */
+            height: 100vh; /* Altura total de la ventana del navegador */
+            margin: 0; /* Elimina el margen por defecto */
+        }
+
+        h1 {
+            color: #4CAF50; /* Color verde oscuro para el título */
+        }
+
+        .form-container {
+            background: white; /* Fondo blanco para el contenedor del formulario */
+            padding: 20px; /* Espaciado interno del contenedor */
+            border-radius: 8px; /* Bordes redondeados para el contenedor */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            width: 300px; /* Ancho fijo del contenedor */
+        }
+
+        label {
+            margin-bottom: 5px; /* Espacio debajo de la etiqueta */
+            color: #333; /* Color del texto de las etiquetas */
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            width: calc(100% - 20px); /* Ancho completo del campo, menos el padding */
+            padding: 10px; /* Espaciado interno del campo */
+            margin-bottom: 15px; /* Espacio debajo de cada campo */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        select {
+            width: calc(100% - 20px); /* Ancho completo del select, menos el padding */
+            padding: 10px; /* Espaciado interno del select */
+            margin-bottom: 15px; /* Espacio debajo del select */
+            border: 1px solid #4CAF50; /* Borde verde oscuro */
+            border-radius: 4px; /* Bordes redondeados */
+        }
+
+        input[type="submit"] {
+            width: 100%; /* Ancho completo del botón */
+            padding: 10px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+        
+        button {
+            margin-top: 10px; /* Margen en la parte superior del botón de regresar */
+            padding: 10px 20px; /* Espaciado interno del botón */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            transition: background-color 0.3s; /* Transición suave para el color de fondo */
+        }
+
+        button:hover {
+            background-color: #388E3C; /* Color de fondo al pasar el mouse sobre el botón */
+        }
+    </style>
+</head>
+<body>
+    <h1>Modificar Paciente</h1> <!-- Título principal de la página -->
+
+    <div class="form-container"> <!-- Contenedor para el formulario -->
+        <form action="modificar_paciente.php" method="POST"> <!-- Acción del formulario -->
+            <input type="hidden" name="id_paciente" value="<?php echo $id_paciente; ?>"> <!-- Campo oculto para el ID del paciente -->
+
+          
+            <label for="id_paciente">id_paciente a modificar :</label>
+            <input type="text" id="id_paciente" name="id_paciente" required> 
+          
+            <label for="nombre_propietario">Nombre del Propietario:</label>
+            <input type="text" id="nombre_propietario" name="nombre_propietario" required> <!-- Campo para el nombre del propietario -->
+
+            <label for="nombre">Nombre del Paciente:</label>
+            <input type="text" id="nombre" name="nombre" required> <!-- Campo para el nombre del paciente -->
+
+            <label for="especie">Especie:</label>
+            <input type="text" id="especie" name="especie" required> <!-- Campo para la especie -->
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required> <!-- Menú desplegable para seleccionar el sexo -->
+                <option value="M">Macho</option> <!-- Opción para macho -->
+                <option value="H">Hembra</option> <!-- Opción para hembra -->
+            </select>
+
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" name="peso" required> <!-- Campo para el peso -->
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required> <!-- Campo para la edad -->
+
+            <input type="submit" value="Modificar Paciente"> <!-- Botón para enviar el formulario -->
+            <button onclick="window.location.href='modificar_bd.html'">Regresar</button> <!-- Botón para regresar al menú -->
+        </form>
+    </div>
+</body>
+</html>
